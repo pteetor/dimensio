@@ -208,7 +208,7 @@
   },
   "isPartOf": "https://www.tesselle.org",
   "keywords": ["data-analysis", "multivariate-analysis", "r-package"],
-  "fileSize": "1523.769KB",
+  "fileSize": "1523.7KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

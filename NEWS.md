@@ -1,3 +1,5 @@
+# dimensio 0.14.1.9000
+
 # dimensio 0.14.1
 ## Bugfixes & changes
 * Fix the order of the values when mapping an extra variable in `viz_individuals()`.
