@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dimensio 0.9.0.9000\n"
-"POT-Creation-Date: 2025-01-06 19:31+0100\n"
+"POT-Creation-Date: 2025-09-03 16:32+0200\n"
 "PO-Revision-Date: 2025-06-03 15:58+0000\n"
 "Last-Translator: nfrerebeau <nicolas.frerebeau@u-bordeaux-montaigne.fr>\n"
 "Language-Team: French <https://translate.codeberg.org/projects/tesselle/"
@@ -13,15 +13,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: ca.R:62
+#: ca.R:71
 msgid "Empty rows detected."
 msgstr "Certaines lignes sont vides."
 
-#: ca.R:64
+#: ca.R:73
 msgid "Empty columns detected."
 msgstr "Certaines colonnes sont vides."
 
 #: dimensio-internal.R:95
+msgid "Some supplementary variables are specified twice."
+msgstr "Certaines variables supplémentaires sont définies en double."
+
+#: dimensio-internal.R:101
 msgid "Some variables are invalid: %s."
 msgstr "Certaines variables sont invalides : %s."
 

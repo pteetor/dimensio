@@ -92,7 +92,8 @@ drop_variable <- function(x, f, negate = FALSE, sup = NULL, extra = NULL,
 
   both <- intersect(which(is_sup), which(is_extra))
   if (length(both) > 0) {
-    stop("!", call. = FALSE)
+    msg <- tr_("Some supplementary variables are specified twice.")
+    stop(msg, call. = FALSE)
   }
 
   ## Quit

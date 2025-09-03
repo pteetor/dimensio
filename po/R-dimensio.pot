@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: dimensio 0.10.1.9000\n"
-"POT-Creation-Date: 2025-01-06 19:31+0100\n"
+"Project-Id-Version: dimensio 0.14.0.9000\n"
+"POT-Creation-Date: 2025-09-03 16:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,15 +11,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ca.R:62
+#: ca.R:71
 msgid "Empty rows detected."
 msgstr ""
 
-#: ca.R:64
+#: ca.R:73
 msgid "Empty columns detected."
 msgstr ""
 
 #: dimensio-internal.R:95
+msgid "Some supplementary variables are specified twice."
+msgstr ""
+
+#: dimensio-internal.R:101
 msgid "Some variables are invalid: %s."
 msgstr ""
 
