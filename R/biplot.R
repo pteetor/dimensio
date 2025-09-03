@@ -69,7 +69,7 @@ biplot.CA <- function(x, ..., axes = c(1, 2),
   )
 
   ## Add legend
-  prepare_legend(coord, legend, points = TRUE, lines = FALSE)
+  viz_legend(coord, legend, points = TRUE, lines = FALSE)
 
   invisible(x)
 }
@@ -134,7 +134,7 @@ biplot.PCA <- function(x, ..., axes = c(1, 2), type = c("form", "covariance"),
   )
 
   ## Add legend
-  prepare_legend(coord, legend, points = TRUE, lines = TRUE)
+  viz_legend(coord, legend, points = TRUE, lines = TRUE)
 
   invisible(x)
 }

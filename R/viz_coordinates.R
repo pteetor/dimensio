@@ -213,7 +213,7 @@ setMethod(
     }
 
     ## Legend
-    prepare_legend(coord, legend, points = FALSE, lines = TRUE)
+    viz_legend(coord, legend, points = FALSE, lines = TRUE)
 
     invisible(x)
   }
@@ -390,9 +390,20 @@ viz_points <- function(x, margin, axes, ...,
   }
 
   ## Legend
-  prepare_legend(coord, legend, points = TRUE, lines = FALSE)
+  viz_legend(coord, legend, points = TRUE, lines = FALSE)
 
   invisible(coord)
+}
+
+#' Add Legend
+#'
+#' @inheritParams prepare_legend
+#' @author N. Frerebeau
+#' @keywords internal
+viz_legend <- function(x, args, points = TRUE, lines = TRUE) {
+  leg <- prepare_legend(x, args, points = points, lines = lines)
+  if (is.null(leg)) return(invisible(NULL))
+  do.call(graphics::legend, args = leg)
 }
 
 #' Non-Overlapping Text Labels
@@ -655,25 +666,34 @@ prepare_legend <- function(x, args, points = TRUE, lines = TRUE) {
   ## Continuous scale
   if (!all(is.na(quanti))) {
     quanti <- quanti[!is.na(quanti)]
-    # im <- grDevices::as.raster(x$col)
+    solo <- !duplicated(quanti)
 
-    pr <- pretty(quanti, n = ifelse(nrow(x) > 5, 5, nrow(x)))
-    pr <- pr[pr <= max(quanti) & pr >= min(quanti)]
-    i <- order(quanti, method = "radix")
-    i <- setdiff(i, which(duplicated(quanti)))
+    if (sum(solo) > 1) {
+      pr <- pretty(quanti, n = ifelse(nrow(x) > 5, 5, nrow(x)))
+      pr <- pr[pr <= max(quanti) & pr >= min(quanti)]
+      i <- order(quanti, method = "radix")
+      i <- setdiff(i, which(duplicated(quanti)))
 
-    col <- grDevices::colorRamp(x$col[i])(scale_range(pr, from = range(quanti)))
-    col <- grDevices::rgb(col, maxColorValue = 255)
+      col <- grDevices::colorRamp(x$col[i])(scale_range(pr, from = range(quanti)))
+      col <- grDevices::rgb(col, maxColorValue = 255)
 
-    leg <- list(legend = pr, col = col)
-    if (points) {
-      k <- duplicated(quanti)
-      cex <- stats::approx(x = quanti[i], y = x$cex[i], xout = pr, ties = "ordered")$y
-      leg <- utils::modifyList(leg, list(pch = unique(x$pch), pt.cex = cex))
-    }
-    if (lines) {
-      lwd <- stats::approx(x = quanti[i], y = x$lwd[i], xout = pr, ties = "ordered")$y
-      leg <- utils::modifyList(leg, list(lty = unique(x$lty), lwd = lwd))
+      leg <- list(legend = pr, col = col)
+      if (points) {
+        cex <- stats::approx(x = quanti[i], y = x$cex[i], xout = pr, ties = "ordered")$y
+        leg <- utils::modifyList(leg, list(pch = unique(x$pch), pt.cex = cex))
+      }
+      if (lines) {
+        lwd <- stats::approx(x = quanti[i], y = x$lwd[i], xout = pr, ties = "ordered")$y
+        leg <- utils::modifyList(leg, list(lty = unique(x$lty), lwd = lwd))
+      }
+    } else {
+      leg <- list(legend = quanti[solo], col = x$col[solo])
+      if (points) {
+        leg <- utils::modifyList(leg, list(pch = x$pch[solo], pt.cex = x$cex[solo]))
+      }
+      if (lines) {
+        leg <- utils::modifyList(leg, list(lty = x$lty[solo], lwd = x$lwd[solo]))
+      }
     }
   }
   ## Discrete scale
@@ -692,6 +712,5 @@ prepare_legend <- function(x, args, points = TRUE, lines = TRUE) {
     }
   }
 
-  leg <- utils::modifyList(leg, args)
-  do.call(graphics::legend, args = leg)
+  utils::modifyList(leg, args)
 }

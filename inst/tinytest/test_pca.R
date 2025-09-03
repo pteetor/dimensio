@@ -45,7 +45,7 @@ expect_equal_to_reference(get_correlations(res), file = "_snaps/pca_correlations
 # Supplementary observations ===================================================
 res <- pca(iris, sup_row = 1:10, sup_col = 2, sup_quali = 5)
 expect_identical(
-  get_order(res, margin = 1),
+  dimensio:::get_order(res, margin = 1),
   c(11L, 12L, 13L, 14L, 15L, 16L, 17L, 18L, 19L, 20L, 21L, 22L,
     23L, 24L, 25L, 26L, 27L, 28L, 29L, 30L, 31L, 32L, 33L, 34L, 35L,
     36L, 37L, 38L, 39L, 40L, 41L, 42L, 43L, 44L, 45L, 46L, 47L, 48L,
@@ -61,7 +61,7 @@ expect_identical(
     8L, 9L, 10L)
 )
 expect_identical(
-  get_order(res, margin = 2),
+  dimensio:::get_order(res, margin = 2),
   c(1L, 3L, 4L, 2L)
 )
 

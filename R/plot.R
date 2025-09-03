@@ -139,7 +139,7 @@ plot.PCOA <- function(x, ..., axes = c(1, 2), labels = FALSE,
     extra_quali = if (length(extra_quali) > 0) extra_quali else rep(NA, n),
     cex = cex, col = col, bg = bg, pch = pch, lty = rep(NA, n)
   )
-  prepare_legend(coord, legend, points = TRUE, lines = FALSE)
+  viz_legend(coord, legend, points = TRUE, lines = FALSE)
 
   invisible(x)
 }
