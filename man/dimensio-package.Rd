@@ -12,7 +12,7 @@ Simple Principal Components Analysis (PCA) and (Multiple) Correspondence Analysi
 }
 \details{
 \tabular{ll}{
-\strong{Version} \tab 0.14.0 \cr
+\strong{Version} \tab 0.14.1 \cr
 \strong{License} \tab GPL-3 \cr
 \strong{CRAN DOI} \tab \doi{10.32614/CRAN.package.dimensio} \cr
 \strong{Zenodo DOI} \tab \doi{10.5281/zenodo.4478530} \cr

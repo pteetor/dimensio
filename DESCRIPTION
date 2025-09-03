@@ -1,6 +1,6 @@
 Package: dimensio
 Title: Multivariate Data Analysis
-Version: 0.14.0.9000
+Version: 0.14.1
 Authors@R: c(
     person("Nicolas", "Frerebeau", , "nicolas.frerebeau@u-bordeaux-montaigne.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5759-4944")),
@@ -50,7 +50,7 @@ VignetteBuilder:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2.9000
+RoxygenNote: 7.3.2
 X-schema.org-isPartOf: https://www.tesselle.org
 X-schema.org-keywords: data-analysis, multivariate-analysis, r-package
 Collate: 
