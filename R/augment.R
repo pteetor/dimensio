@@ -24,7 +24,7 @@ setMethod(
     sum <- joint_coordinates(x, margin = margin, axes = axes, principal = principal)
     cos2 <- joint_cos2(x, margin = margin, axes = axes)
 
-    res <- data.frame(
+    data.frame(
       coords[, axes, drop = FALSE],
       label = rownames(coords),
       supplementary = coords$.sup,
@@ -34,15 +34,6 @@ setMethod(
       cos2 = cos2,
       row.names = NULL
     )
-
-    if (!methods::is(x, "MultivariateBootstrap")) {
-      ## Reorder
-      ## /!\ see build_results() /!\
-      origin <- get_order(x, margin = margin)
-      res <- res[origin, , drop = FALSE]
-    }
-
-    res
   }
 )
 

@@ -12,7 +12,7 @@ expect_equal(
 )
 expect_equal(
   dimensio:::drop_variable(iris, f = is.numeric, negate = TRUE, auto = TRUE, sup = 1),
-  list(data = as.matrix(iris[, c(2, 3, 4, 1)]), sup = 4L, extra = NULL)
+  list(data = as.matrix(iris[, 1:4]), sup = 1L, extra = NULL)
 )
 expect_equal(
   dimensio:::drop_variable(iris, f = is.numeric, negate = TRUE, auto = TRUE, sup = 5),
@@ -24,7 +24,7 @@ expect_equal(
 )
 expect_equal(
   dimensio:::drop_variable(iris, f = is.numeric, negate = TRUE, auto = TRUE, sup = 1, extra = 5),
-  list(data = as.matrix(iris[, c(2, 3, 4, 1)]), sup = 4L, extra = iris[, 5, drop = FALSE])
+  list(data = as.matrix(iris[, 1:4]), sup = 1L, extra = iris[, 5, drop = FALSE])
 )
 expect_error(
   dimensio:::drop_variable(iris, f = is.numeric, negate = TRUE, auto = FALSE)
@@ -38,5 +38,5 @@ expect_equal(
 )
 expect_equal(
   dimensio:::drop_variable(iris, f = is.numeric, negate = TRUE, auto = FALSE, sup = 1, extra = 5),
-  list(data = as.matrix(iris[, c(2, 3, 4, 1)]), sup = 4L, extra = iris[, 5, drop = FALSE])
+  list(data = as.matrix(iris[, 1:4]), sup = 1L, extra = iris[, 5, drop = FALSE])
 )

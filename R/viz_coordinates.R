@@ -374,12 +374,9 @@ viz_points <- function(x, margin, axes, ...,
     )
   }
 
-  group <- coord$extra_quali
-  if (all(is.na(group))) group[] <- ""
-
   ## Add ellipse
   if (is.list(ellipse) && length(ellipse) > 0) {
-    args_ell <- list(x = x, group = group,
+    args_ell <- list(x = x, group = extra_quali,
                      color = color, fill = FALSE, symbol = FALSE)
     ellipse <- modifyList(args_ell, val = ellipse)
     do.call(viz_ellipses, ellipse)
@@ -387,7 +384,7 @@ viz_points <- function(x, margin, axes, ...,
 
   ## Add convex hull
   if (isTRUE(hull)) {
-    args_hull <- list(x = x, group = group,
+    args_hull <- list(x = x, group = extra_quali,
                       color = color, fill = FALSE, symbol = FALSE)
     do.call(viz_hull, args_hull)
   }
@@ -528,6 +525,19 @@ prepare_plot <- function(x, margin, ..., axes = c(1, 2), active = TRUE,
   ## Recode
   data$observation <- ifelse(data$supplementary, "suppl.", "active")
 
+  ## Reorder
+  ## /!\ See build_results() /!\
+  origin <- get_order(x, margin = margin)
+  if (length(extra_quanti) > 1) {
+    arkhe::assert_type(extra_quanti, "numeric")
+    arkhe::assert_length(extra_quanti, n)
+    extra_quanti <- extra_quanti[origin]
+  }
+  if (length(extra_quali) > 1) {
+    arkhe::assert_length(extra_quali, n)
+    extra_quali <- extra_quali[origin]
+  }
+
   ## Set graphical parameters
   ## (recycle if of length one)
   dots <- list(...)
@@ -551,8 +561,6 @@ prepare_plot <- function(x, margin, ..., axes = c(1, 2), active = TRUE,
   }
   if (length(extra_quanti) > 0) {
     extra_quanti <- as.vector(extra_quanti)
-    arkhe::assert_type(extra_quanti, "numeric")
-    arkhe::assert_length(extra_quanti, n)
     ## Continuous scales
     ## (ignored if col, bg, cex and lwd are set by user)
     if (is.null(dots$col) && !isFALSE(color))
@@ -583,7 +591,6 @@ prepare_plot <- function(x, margin, ..., axes = c(1, 2), active = TRUE,
   }
   if (!isFALSE(extra_quali) && length(extra_quali) > 0) {
     extra_quali <- as.vector(extra_quali)
-    arkhe::assert_length(extra_quali, n)
     ## Discrete scales
     ## (ignored if col, bg, pch and lty are set by user)
     if (is.null(dots$col) && !isFALSE(color))
@@ -598,19 +605,27 @@ prepare_plot <- function(x, margin, ..., axes = c(1, 2), active = TRUE,
     extra_quali <- rep(NA_character_, n)
   }
 
+  ## Check
+  arkhe::assert_length(col, n)
+  arkhe::assert_length(bg, n)
+  arkhe::assert_length(pch, n)
+  arkhe::assert_length(cex, n)
+  arkhe::assert_length(lty, n)
+  arkhe::assert_length(lwd, n)
+
   coord <- data.frame(
     data,
     x = data[[1L]],
     y = data[[2L]],
     extra_quali = extra_quali,
     extra_quanti = extra_quanti,
-    label = data$label,
     col = col,
     bg = bg,
     pch = pch,
     cex = cex,
     lty = lty,
-    lwd = lwd
+    lwd = lwd,
+    row.names = NULL
   )
 
   ## Subset

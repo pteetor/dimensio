@@ -90,6 +90,11 @@ drop_variable <- function(x, f, negate = FALSE, sup = NULL, extra = NULL,
   is_extra <- find_variable(extra, ncol(x), names = colnames(x))
   is_sup <- find_variable(sup, ncol(x), names = colnames(x))
 
+  both <- intersect(which(is_sup), which(is_extra))
+  if (length(both) > 0) {
+    stop("!", call. = FALSE)
+  }
+
   ## Quit
   if (!auto && any(not_ok & !is_extra)) {
     msg <- tr_("Some variables are invalid: %s.")
@@ -102,24 +107,18 @@ drop_variable <- function(x, f, negate = FALSE, sup = NULL, extra = NULL,
     extra <- x[, is_extra, drop = FALSE]
   }
 
-  ## Remove supplementary/extra variables, if any
+  ## Remove not OK variables, if any
   tmp <- x
-  x <- x[, !(not_ok | is_sup | is_extra), drop = FALSE]
+  x <- x[, !(not_ok | is_extra), drop = FALSE]
 
-  ## Move supplementary variables at the end, if any
-  is_sup_ok <- is_sup & !not_ok
-  if (any(is_sup_ok)) {
-    sup <- seq_len(sum(is_sup_ok)) + ncol(x)
-    x <- cbind(x, tmp[, is_sup_ok, drop = FALSE])
-  } else {
-    # warning("!", call. = FALSE)
-    sup <- NULL
-  }
+  ## Recompute supplementary variable positions
+  is_sup_ok <- is_sup[!(not_ok | is_extra)]
+  sup <- if (any(is_sup_ok)) which(is_sup_ok) else NULL
 
   ## Generate message
   if (any(not_ok)) {
     not_ok[is_sup | is_extra] <- FALSE
-    if (any(not_ok) && verbose) {
+    if (any(not_ok) && isTRUE(verbose)) {
       tot <- sum(not_ok)
       msg <- ngettext(tot, "%d %s variable was removed: %s.",
                       "%d %s variables were removed: %s.")
