@@ -12,7 +12,7 @@ NULL
 setMethod(
   f = "export",
   signature = c(object = "MultivariateAnalysis"),
-  definition = function(object, file, flags = "-r9Xj", ...) {
+  definition = function(object, file, flags = "-r9Xjq", ...) {
     ## Create temporary directory
     dir_path <- tempfile(pattern = "export_")
     dir.create(path = dir_path)
@@ -42,7 +42,7 @@ setMethod(
 setMethod(
   f = "export",
   signature = c(object = "PCOA"),
-  definition = function(object, file, flags = "-r9Xj", ...) {
+  definition = function(object, file, flags = "-r9Xjq", ...) {
     ## Create temporary directory
     dir_path <- tempfile(pattern = "export_")
     dir.create(path = dir_path)

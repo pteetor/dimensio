@@ -10,9 +10,9 @@
 \usage{
 export(object, ...)
 
-\S4method{export}{MultivariateAnalysis}(object, file, flags = "-r9Xj", ...)
+\S4method{export}{MultivariateAnalysis}(object, file, flags = "-r9Xjq", ...)
 
-\S4method{export}{PCOA}(object, file, flags = "-r9Xj", ...)
+\S4method{export}{PCOA}(object, file, flags = "-r9Xjq", ...)
 }
 \arguments{
 \item{object}{A \code{\linkS4class{CA}}, \code{\linkS4class{MCA}} or \code{\linkS4class{PCA}} object.}
