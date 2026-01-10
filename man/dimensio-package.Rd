@@ -51,8 +51,8 @@ Other contributors:
   \item Jean-Baptiste Fourvel \email{jean-baptiste.fourvel@univ-amu.fr} (\href{https://orcid.org/0000-0002-1061-4642}{ORCID}) [contributor]
   \item Camille Thabard \email{camille.thabard@univ-tlse2.fr} (\href{https://orcid.org/0000-0002-3196-7658}{ORCID}) [contributor]
   \item Brice Lebrun (\href{https://orcid.org/0000-0001-7503-8685}{ORCID}) (Logo designer) [artist]
-  \item Université Bordeaux Montaigne (03pbgwk21) [funder]
-  \item CNRS (02feahw73) [funder]
+  \item Université Bordeaux Montaigne (\href{https://ror.org/03pbgwk21}{ROR}) [funder]
+  \item CNRS (\href{https://ror.org/02feahw73}{ROR}) [funder]
 }
 
 }

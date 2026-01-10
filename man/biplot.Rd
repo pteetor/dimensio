@@ -195,6 +195,7 @@ Greenacre, M. J. (2010). \emph{Biplots in Practice}. Bilbao: Fundación BBVA.
 Other plot methods: 
 \code{\link{plot}()},
 \code{\link{screeplot}()},
+\code{\link{screeplot_gg}()},
 \code{\link{viz_contributions}()},
 \code{\link{viz_individuals}()},
 \code{\link{viz_variables}()}

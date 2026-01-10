@@ -32,6 +32,11 @@ screeplot_gg.MultivariateAnalysis <- function(x, ..., eigenvalues = FALSE, cumul
     }
   }
 
+  if (cumulative) {
+    k <- max(data$y) / max(data$z)
+    data$k <- data$z * k
+  }
+
   ## Plot
   p <- ggplot2::ggplot(data, ggplot2::aes(x = .data$x, y = .data$y)) +
     ggplot2::geom_col(...) +
@@ -45,9 +50,6 @@ screeplot_gg.MultivariateAnalysis <- function(x, ..., eigenvalues = FALSE, cumul
   }
 
   if (cumulative) {
-    k <- max(data$y) / max(data$z)
-    data$k <- data$z * k
-
     if (methods::is(x, "CA")) {
       ylab2 <- tr_("Cumulative inertia (%)")
     } else {
