@@ -13,7 +13,7 @@ biplot_gg.CA <- function(x, ..., axes = c(1, 2),
                          pch.rows = c(16, 1), pch.columns = c(17, 2),
                          size = c(1, 3),
                          xlim = NULL, ylim = NULL, main = NULL, sub = NULL,
-                         legend = list(position = "right")) {
+                         legend = list(legend.position = "right")) {
   ## Validation
   type <- match.arg(type, several.ok = FALSE)
 
@@ -193,7 +193,7 @@ biplot_gg.PCA <- function(x, ..., axes = c(1, 2), type = c("form", "covariance")
                           col.columns = c("#56B4E9", "#56B4E9"),
                           pch.rows = c(16, 1), lty.columns = c(1, 3),
                           xlim = NULL, ylim = NULL, main = NULL, sub = NULL,
-                          legend = list(position = "right")) {
+                          legend = list(legend.position = "right")) {
   ## Validation
   type <- match.arg(type, several.ok = FALSE)
 
@@ -235,8 +235,8 @@ biplot_gg.PCA <- function(x, ..., axes = c(1, 2), type = c("form", "covariance")
   )
 
   linetype_map <- c(
-    "Rows active" = "blank",
-    "Rows suppl." = "blank",
+    "Rows active" = NA,
+    "Rows suppl." = NA,
     "Columns active" = lty.columns[1], # Numeric or string? lty.columns is usually numeric (1, 3)
     "Columns suppl." = lty.columns[2]
   )
