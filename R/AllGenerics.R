@@ -642,6 +642,32 @@ setGeneric(
 #' @rdname screeplot
 NULL
 
+#' Scree Plot
+#'
+#' Plot eigenvalues (scree plot) or variances histogram.
+#' @param x A [`CA-class`], [`MCA-class`] or [`PCA-class`] object.
+#' @param eigenvalues A [`logical`] scalar: should the eigenvalues be plotted
+#'  instead of variance/inertia?
+#' @param cumulative A [`logical`] scalar: should the cumulative percentages of
+#'  variance be plotted?
+#' @param labels A [`logical`] scalar: should text labels be drawn on top of
+#'  bars?
+#' @param limit An [`integer`] specifying the number of top elements to be
+#'  displayed.
+#' @param ... Extra parameters to be passed to [ggplot2::geom_col()] or
+#'  [ggplot2::geom_line()].
+#' @return
+#'  A \pkg{ggplot2} object.
+#' @example inst/examples/ex-screeplot.R
+#' @author N. Frerebeau
+#' @docType methods
+#' @family plot methods
+#' @aliases screeplot_gg-method
+setGeneric(
+  name = "screeplot_gg",
+  def = function(x, ...) standardGeneric("screeplot_gg")
+)
+
 ## Contributions ---------------------------------------------------------------
 #' Visualize Contributions and cos2
 #'
