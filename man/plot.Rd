@@ -112,6 +112,7 @@ Plot Coordinates
 \seealso{
 Other plot methods: 
 \code{\link{biplot}()},
+\code{\link{biplot_gg}()},
 \code{\link{screeplot}()},
 \code{\link{screeplot_gg}()},
 \code{\link{viz_contributions}()},

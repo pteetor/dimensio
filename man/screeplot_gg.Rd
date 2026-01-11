@@ -46,6 +46,7 @@ screeplot(X, cumulative = TRUE)
 \seealso{
 Other plot methods: 
 \code{\link{biplot}()},
+\code{\link{biplot_gg}()},
 \code{\link{plot}()},
 \code{\link{screeplot}()},
 \code{\link{viz_contributions}()},

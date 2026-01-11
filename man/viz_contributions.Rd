@@ -105,6 +105,7 @@ viz_cos2(X, axes = 1)
 \seealso{
 Other plot methods: 
 \code{\link{biplot}()},
+\code{\link{biplot_gg}()},
 \code{\link{plot}()},
 \code{\link{screeplot}()},
 \code{\link{screeplot_gg}()},

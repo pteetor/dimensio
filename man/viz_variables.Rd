@@ -218,6 +218,7 @@ viz_variables(X, extra_quali = c("Petal", "Petal", "Sepal", "Sepal"),
 \seealso{
 Other plot methods: 
 \code{\link{biplot}()},
+\code{\link{biplot_gg}()},
 \code{\link{plot}()},
 \code{\link{screeplot}()},
 \code{\link{screeplot_gg}()},

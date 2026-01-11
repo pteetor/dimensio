@@ -191,7 +191,7 @@ biplot_gg.PCA <- function(x, ..., axes = c(1, 2), type = c("form", "covariance")
                           active = TRUE, sup = TRUE, labels = "variables",
                           col.rows = c("#E69F00", "#E69F00"),
                           col.columns = c("#56B4E9", "#56B4E9"),
-                          pch.rows = c(16, 1), lty.columns = c(1, 3),
+                          pch.rows = c(16, 1), lty.columns = c("solid", "dotted"),
                           xlim = NULL, ylim = NULL, main = NULL, sub = NULL,
                           legend = list(legend.position = "right")) {
   ## Validation
@@ -257,6 +257,9 @@ biplot_gg.PCA <- function(x, ..., axes = c(1, 2), type = c("form", "covariance")
                                  ggplot2::aes(x = 0, y = 0, xend = .data$x, yend = .data$y,
                                               colour = .data$group, linetype = .data$group),
                                  arrow = ggplot2::arrow(length = ggplot2::unit(0.2, "cm")))
+
+  ## DEBUG
+  ## browser()
 
   # Scales
   p <- p +

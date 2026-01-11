@@ -59,6 +59,7 @@ Collate:
     'annotations.R'
     'augment.R'
     'biplot.R'
+    'biplot_gg.R'
     'bootstrap.R'
     'ca.R'
     'coerce.R'
