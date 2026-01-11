@@ -94,6 +94,7 @@ Collate:
     'tidy.R'
     'tools.R'
     'viz_contributions.R'
+    'viz_contributions_gg.R'
     'viz_coordinates.R'
     'viz_cos2.R'
     'viz_ellipse.R'

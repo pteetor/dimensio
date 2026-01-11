@@ -239,6 +239,7 @@ Other plot methods:
 \code{\link{screeplot}()},
 \code{\link{screeplot_gg}()},
 \code{\link{viz_contributions}()},
+\code{\link{viz_contributions_gg}()},
 \code{\link{viz_individuals}()},
 \code{\link{viz_variables}()},
 \code{\link{viz_variables_gg}()}
