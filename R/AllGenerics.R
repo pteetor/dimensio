@@ -457,6 +457,40 @@ setGeneric(
   valueClass = "data.frame"
 )
 
+#' Visualize Contributions and cos2
+#'
+#' Plots contributions histogram.
+#' @param x A [`CA-class`], [`MCA-class`] or [`PCA-class`] object.
+#' @param margin A length-one [`numeric`] vector giving the subscript which the
+#'  data will be returned: `1` indicates individuals/rows (the default), `2`
+#'  indicates variables/columns.
+#' @param axes A [`numeric`] vector giving the dimensions to be plotted.
+#' @param sort A [`logical`] scalar: should the data be sorted?
+#' @param decreasing A [`logical`] scalar: should the sort order be decreasing?
+#'  Only used if `sort` is `TRUE`.
+#' @param limit An [`integer`] specifying the number of top elements to be
+#'  displayed.
+#' @param horiz A [`logical`] scalar: should the bars be drawn horizontally
+#'  with the first at the bottom?
+#' @param col,border A [`character`] string specifying the bars infilling and
+#'  border colors.
+#' @param ... Extra parameters to be passed to [ggplot2::geom_col()].
+#' @details
+#'  The red dashed line indicates the expected average contribution (variables
+#'  with a contribution larger than this cutoff can be considered as important
+#'  in contributing to the component).
+#' @return
+#'  A \pkg{ggplot2} object.
+#' @example inst/examples/ex-viz_contributions_gg.R
+#' @author N. Frerebeau
+#' @docType methods
+#' @family plot methods
+#' @aliases viz_contributions_gg-method
+setGeneric(
+  name = "viz_contributions_gg",
+  def = function(x, ...) standardGeneric("viz_contributions_gg")
+)
+
 # Plot =========================================================================
 #' Plot Coordinates
 #'
