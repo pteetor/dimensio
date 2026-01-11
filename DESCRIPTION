@@ -98,6 +98,7 @@ Collate:
     'viz_cos2.R'
     'viz_ellipse.R'
     'viz_hull.R'
+    'viz_variables_gg.R'
     'wrap_ellipses.R'
     'wrap_hull.R'
     'zzz.R'
