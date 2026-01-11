@@ -611,6 +611,25 @@ setGeneric(
   def = function(x, ...) standardGeneric("viz_columns")
 )
 
+#' Visualize Variables Factor Map
+#'
+#' Plots column/variable principal coordinates.
+#' @inheritParams viz_points
+#' @param ... Further parameters to be passed to [ggplot2::geom_segment()]
+#'  (if `x` is a [`PCA-class`] object) or [ggplot2::geom_point()]
+#'  (if `x` is a [`CA-class`] object).
+#' @return
+#'  A \pkg{ggplot2} object.
+#' @example inst/examples/ex-viz_variables_gg.R
+#' @author N. Frerebeau
+#' @docType methods
+#' @family plot methods
+#' @aliases viz_variables_gg-method
+setGeneric(
+  name = "viz_variables_gg",
+  def = function(x, ...) standardGeneric("viz_variables_gg")
+)
+
 ## Eigenvalues -----------------------------------------------------------------
 #' Scree Plot
 #'
